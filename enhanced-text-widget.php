@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Enhanced Text Widget
-Plugin URI: http://peplamb.com/linkable-title-html-and-php-widget/
-Description: This plugin has been modified, based on <a href="http://peplamb.com/linkable-title-html-and-php-widget/" target="_blank">Linkable Title Html and Php Widget</a> by <a href="http://peplamb.com/linkable-title-html-and-php-widget/" target="_blank">PepLamb</a>! Using this plugin you may have Text, HTML, Javascript, Flash and/or Php as content in this widget with linkable widget titles, so this is a plus compared to the default wordpress' text widget. 
+Plugin URI: http://pomelodesign.com/enhanced-text-widget
+Description: This plugin provides a widget that supports Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget titles.
 Version: 1.0
 Author: Pomelo Design Inc.
-Author URI: http://pomelodesign.com.com/
+Author URI: http://pomelodesign.com/
 */
 /*  This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
