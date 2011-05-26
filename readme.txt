@@ -26,10 +26,13 @@ Nothing right now.
 
 == Screenshots ==
 
+Nothing here yet.
+
 == Upgrade Notice ==
+
+Nothing here yet.
 
 == Changelog ==
 
 = 1.0 =
 * First release.
-
