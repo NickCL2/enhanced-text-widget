@@ -26,16 +26,20 @@ Nothing right now.
 
 == Screenshots ==
 
-1. Widget screen
+1. Widget editor.
 
 == Upgrade Notice ==
 
-Nothing here yet.
+= 1.1 =
+This adds a CSS class parameter to each widget.
+
+= 1.0 =
+This is the initial release.
 
 == Changelog ==
 
 = 1.1 =
-* Adds css class parameter that wraps widget
+* Adds css class parameter that wraps widget.
 
 = 1.0 =
 * First release.
