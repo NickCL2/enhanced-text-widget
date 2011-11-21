@@ -30,6 +30,9 @@ Nothing right now.
 
 == Upgrade Notice ==
 
+= 1.2 =
+This adds option to display bare text (no before/after widget/title elements are shown)
+
 = 1.1 =
 This adds a CSS class parameter to each widget.
 
