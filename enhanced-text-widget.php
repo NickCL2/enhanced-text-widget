@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
 Description: This plugin provides a widget that supports Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget titles.
-Version: 1.0
+Version: 1.1
 Author: Pomelo Design Inc.
 Author URI: http://pomelodesign.com/
 */
@@ -34,7 +34,15 @@ class EnhancedTextWidget extends WP_Widget {
         $title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title'], $instance);
         $titleUrl = apply_filters('widget_title', empty($instance['titleUrl']) ? '' : $instance['titleUrl'], $instance);
         $newWindow = $instance['newWindow'] ? '1' : '0';
+        $cssClass = apply_filters('widget_title', empty($instance['cssClass']) ? '' : $instance['cssClass'], $instance);
         $text = apply_filters( 'widget_text', $instance['text'], $instance );
+        if ( $cssClass ) {
+            if( strpos($before_widget, 'class') === false ) {
+                $before_widget = str_replace('>', 'class="'. $cssClass . '"', $before_widget);
+            } else {
+                $before_widget = str_replace('class="', 'class="'. $cssClass . ' ', $before_widget);
+            }
+        }
         echo $before_widget;
         if( $titleUrl && $title )
             $title = '<a href="'.$titleUrl.'"'.($newWindow == '1'?' target="_blank"':'').' title="'.$title.'">'.$title.'</a>';
@@ -48,6 +56,7 @@ class EnhancedTextWidget extends WP_Widget {
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
         $instance['titleUrl'] = strip_tags($new_instance['titleUrl']);
+        $instance['cssClass'] = strip_tags($new_instance['cssClass']);
         $instance['newWindow'] = $new_instance['newWindow'] ? 1 : 0;
         if ( current_user_can('unfiltered_html') )
             $instance['text'] =  $new_instance['text'];
@@ -62,6 +71,7 @@ class EnhancedTextWidget extends WP_Widget {
         $title = strip_tags($instance['title']);
         $titleUrl = strip_tags($instance['titleUrl']);
         $newWindow = $instance['newWindow'] ? 'checked="checked"' : '';
+        $cssClass = strip_tags($instance['cssClass']);
         $text = format_to_edit($instance['text']);
 ?>
         <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
@@ -70,7 +80,8 @@ class EnhancedTextWidget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id('titleUrl'); ?>" name="<?php echo $this->get_field_name('titleUrl'); ?>" type="text" value="<?php echo esc_attr($titleUrl); ?>" /></p>
         <p><input class="checkbox" type="checkbox" <?php echo $newWindow; ?> id="<?php echo $this->get_field_id('newWindow'); ?>" name="<?php echo $this->get_field_name('newWindow'); ?>" />
         <label for="<?php echo $this->get_field_id('newWindow'); ?>"><?php _e('Open the URL in a new window'); ?></label></p>
-        
+        <p><label for="<?php echo $this->get_field_id('cssClass'); ?>"><?php _e('CSS Class:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('cssClass'); ?>" name="<?php echo $this->get_field_name('cssClass'); ?>" type="text" value="<?php echo esc_attr($cssClass); ?>" /></p>
         <p><label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Content:'); ?></label>
         <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 
