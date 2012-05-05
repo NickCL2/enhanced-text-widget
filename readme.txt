@@ -5,11 +5,8 @@ Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, l
 Requires at least: 2.8.0
 Tested up to: 3.2.1
 Stable tag: trunk
-<<<<<<< HEAD
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-=======
->>>>>>> 7e3b387777d74f36aacae566127cd43daf87a481
 
 An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
@@ -17,7 +14,6 @@ An enhanced version of the default text widget where you may have Text, HTML, Ja
 
 An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
-<<<<<<< HEAD
 Options:
 
 * Title
@@ -28,7 +24,7 @@ Options:
 * Automatically add paragraphs
 * Bare widget (do not output before/after_widget/title)
 
-For support please use [github issues](https://github.com/bostondv/enhanced-text-widget/issues). Visit [our website](http://pomelodesign.com) or follow [@pomelod](http://twitter.com/pomelod/) for updates.
+For support please use [github issues](https://github.com/bostondv/enhanced-text-widget/issues). Visit [our website](http://pomelodesign.com), follow [@pomelod](http://twitter.com/pomelod/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
 
 == Installation ==
 
@@ -36,15 +32,6 @@ For support please use [github issues](https://github.com/bostondv/enhanced-text
 2. Upload `enhanced-text-widget` folder to `/wp-content/plugins/`
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add the widget to a sidebar and configure the options as desired
-=======
-== Installation ==
-
-1. Download
-2. Extract all files from the zip archive
-3. Copy the enhanced-text-widget folder to wp-content/plugins/
-4. Activate the plugin through the "Plugins" menu in WordPress
-5. Add the widget to the sidebar and configure the options as desired
->>>>>>> 7e3b387777d74f36aacae566127cd43daf87a481
 
 == Frequently Asked Questions ==
 
