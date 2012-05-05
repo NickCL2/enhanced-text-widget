@@ -12,6 +12,21 @@ An enhanced version of the default text widget where you may have Text, HTML, Ja
 
 An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
+<<<<<<< HEAD
+=======
+Options:
+
+* Title
+* Title URL
+* Open URL in new window
+* Widget CSS class
+* Content which support HTML, JavaScript, Flash, PHP, CSS.
+* Automatically add paragraphs
+* Bare widget (do not output before/after_widget/title)
+
+For support please use [github issues](https://github.com/bostondv/enhanced-text-widget/issues). Visit [our website](http://pomelodesign.com), follow [@pomelod](http://twitter.com/pomelod/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
+
+>>>>>>> fix merge
 == Installation ==
 
 1. Download
