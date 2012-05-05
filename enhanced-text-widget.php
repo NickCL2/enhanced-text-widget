@@ -1,45 +1,30 @@
 <?php
 /*
 Plugin Name: Enhanced Text Widget
-<<<<<<< HEAD
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
-Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title. 
-Version: 1.2.1
-Author: Pomelo Design Inc.
-Author URI: http://pomelodesign.com/
-License: GPL2
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-=======
-Plugin URI: http://peplamb.com/linkable-title-html-and-php-widget/
-Description: This plugin has been modified, based on <a href="http://peplamb.com/linkable-title-html-and-php-widget/" target="_blank">Linkable Title Html and Php Widget</a> by <a href="http://peplamb.com/linkable-title-html-and-php-widget/" target="_blank">PepLamb</a>! Using this plugin you may have Text, HTML, Javascript, Flash and/or Php as content in this widget with linkable widget titles, so this is a plus compared to the default wordpress' text widget. 
+Description: This plugin provides a widget that supports Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget titles.
 Version: 1.0
 Author: Pomelo Design Inc.
-Author URI: http://pomelodesign.com.com/
+Author URI: http://pomelodesign.com/
 */
 /*  This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
->>>>>>> first commit
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 class EnhancedTextWidget extends WP_Widget {
 
     function EnhancedTextWidget() {
-        $widget_ops = array('classname' => 'widget_text', 'description' => __('Linkable titles with text, HTML, CSS, PHP, Flash and/or Javascript.'));
+        $widget_ops = array('classname' => 'widget_text', 'description' => __('Linkable titles with text, HTML PHP, Flash, Javascript'));
         $control_ops = array('width' => 400, 'height' => 350);
         $this->WP_Widget('EnhancedTextWidget', __('Enhanced Text'), $widget_ops, $control_ops);
     }
@@ -90,13 +75,6 @@ class EnhancedTextWidget extends WP_Widget {
         <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 
         <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs.'); ?></label></p>
-<<<<<<< HEAD
-        <p><input class="checkbox" type="checkbox" <?php echo $bare; ?> id="<?php echo $this->get_field_id('bare'); ?>" name="<?php echo $this->get_field_name('bare'); ?>" />
-        <label for="<?php echo $this->get_field_id('bare'); ?>"><?php _e('Do not output before/after_widget/title'); ?></label></p>
-        <p class="credits"><small>Developed by <a href="http://pomelodesign.com">Pomelo Design</a></small></p>
-
-=======
->>>>>>> first commit
 <?php
     }
 }

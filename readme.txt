@@ -1,18 +1,18 @@
 === Enhanced Text Widget ===
-Contributors: bostondv
+Contributors: Pomelo Design Inc.
 Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, PHP Widget, link widget title
 Requires at least: 2.8.0
-Tested up to: 3.2.1
+Tested up to: 3.1.2
 Stable tag: trunk
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
+An enhanced version of the text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
 == Description ==
 
-An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
+Using this WordPress plugin you may have Text, HTML, JavaScript, Flash and/or PHP as content in this widget with linkable widget titles.
 
 Options:
 
@@ -37,25 +37,7 @@ For support please use [github issues](https://github.com/bostondv/enhanced-text
 
 Nothing right now.
 
-== Screenshots ==
-
-1. Widget editor.
-
-== Upgrade Notice ==
-
-= 1.2 =
-This adds option to display bare text (no before/after widget/title elements are shown)
-
-= 1.1 =
-This adds a CSS class parameter to each widget.
-
-= 1.0 =
-This is the initial release.
-
 == Changelog ==
-
-= 1.1 =
-* Adds css class parameter that wraps widget.
 
 = 1.0 =
 * First release.
