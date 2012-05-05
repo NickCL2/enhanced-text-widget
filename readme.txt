@@ -24,7 +24,7 @@ Options:
 * Automatically add paragraphs
 * Bare widget (do not output before/after_widget/title)
 
-For support please use [github issues](https://github.com/bostondv/enhanced-text-widget/issues). Visit [our website](http://pomelodesign.com) or follow [@pomelod](http://twitter.com/pomelod/) for updates.
+For support please use [github issues](https://github.com/bostondv/enhanced-text-widget/issues). Visit [our website](http://pomelodesign.com), follow [@pomelod](http://twitter.com/pomelod/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
 
 == Installation ==
 
