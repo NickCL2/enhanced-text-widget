@@ -2,7 +2,7 @@
 /*
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
-Description: This plugin provides a widget that supports Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget titles.
+Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title. 
 Version: 1.2.1
 Author: Pomelo Design Inc.
 Author URI: http://pomelodesign.com/
@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 class EnhancedTextWidget extends WP_Widget {
 
     function EnhancedTextWidget() {
-        $widget_ops = array('classname' => 'widget_text', 'description' => __('Linkable titles with text, HTML PHP, Flash, Javascript'));
+        $widget_ops = array('classname' => 'widget_text', 'description' => __('Linkable titles with text, HTML, CSS, PHP, Flash and/or Javascript.'));
         $control_ops = array('width' => 400, 'height' => 350);
         $this->WP_Widget('EnhancedTextWidget', __('Enhanced Text'), $widget_ops, $control_ops);
     }
