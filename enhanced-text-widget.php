@@ -94,6 +94,7 @@ class EnhancedTextWidget extends WP_Widget {
         <p><input class="checkbox" type="checkbox" <?php echo $bare; ?> id="<?php echo $this->get_field_id('bare'); ?>" name="<?php echo $this->get_field_name('bare'); ?>" />
         <label for="<?php echo $this->get_field_id('bare'); ?>"><?php _e('Do not output before/after_widget/title'); ?></label></p>
         <p class="credits"><small>Developed by <a href="http://pomelodesign.com">Pomelo Design</a></small></p>
+
 <?php
     }
 }
