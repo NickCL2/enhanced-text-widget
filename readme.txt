@@ -1,16 +1,16 @@
 === Enhanced Text Widget ===
-Contributors: Pomelo Design Inc.
+Contributors: bostondv
 Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, PHP Widget, link widget title
 Requires at least: 2.8.0
 Tested up to: 3.1.2
 Stable tag: trunk
 
-An enhanced version of the text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
+An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
 == Description ==
 
-Using this WordPress plugin you may have Text, HTML, JavaScript, Flash and/or PHP as content in this widget with linkable widget titles.
+An enhanced version of the default text widget where you may have Text, HTML, JavaScript, Flash and/or PHP as content with linkable widget title. 
 
 == Installation ==
 
@@ -23,6 +23,10 @@ Using this WordPress plugin you may have Text, HTML, JavaScript, Flash and/or PH
 == Frequently Asked Questions ==
 
 Nothing right now.
+
+== Screenshots ==
+
+== Upgrade Notice ==
 
 == Changelog ==
 
