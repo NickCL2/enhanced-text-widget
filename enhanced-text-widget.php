@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title. 
-Version: 1.2.2
+Version: 1.3
 Author: Pomelo Design
 Author URI: http://pomelodesign.com/
 License: GPL2
