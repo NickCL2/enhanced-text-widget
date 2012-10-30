@@ -4,7 +4,7 @@ Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, PHP Widget, link widget title, bare widget
 Requires at least: 2.8
 Tested up to: 3.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,10 @@ This adds a CSS class parameter to each widget.
 This is the initial release.
 
 == Changelog ==
+
+= 1.3.3 =
+* Fixes "Do not output before/after_widget/title" option
+* Code cleanup
 
 = 1.3.2 =
 * Bug fixes
