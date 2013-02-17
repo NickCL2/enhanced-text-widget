@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 class EnhancedTextWidget extends WP_Widget {
 
     function EnhancedTextWidget() {
-        $widget_ops = array('classname' => 'widget_text', 'description' => __('Linkable titles with text, HTML, CSS, PHP, Flash and/or Javascript.'));
+        $widget_ops = array('classname' => 'widget_text', 'description' => __('Widget supporting Text, HTML, CSS, PHP, Flash, JavaScript, Shortcodes'));
         $control_ops = array('width' => 400, 'height' => 350);
         $this->WP_Widget('EnhancedTextWidget', __('Enhanced Text'), $widget_ops, $control_ops);
     }
