@@ -23,7 +23,7 @@ Options:
 * Do not display title
 * Open URL in new window
 * Automatically add paragraphs
-* Do not output before/after_widget/title)
+* Do not output before/after_widget/title
 
 For support please [wordpress.org](http://wordpress.org/support/plugin/enhanced-text-widget). Visit [our website](http://pomelodesign.com), follow [@pomelod](http://twitter.com/pomelod/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
 
