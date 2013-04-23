@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title.
-Version: 1.3.4
+Version: 1.4
 Author: Pomelo Design
 Author URI: http://pomelodesign.com/
 License: GPL2
@@ -25,21 +25,47 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 class EnhancedTextWidget extends WP_Widget {
 
-    function EnhancedTextWidget() {
-        $widget_ops = array('classname' => 'widget_text', 'description' => __('Widget supporting Text, HTML, CSS, PHP, Flash, JavaScript, Shortcodes'));
+    /**
+     * Widget construction
+     */
+    function __construct() {
+        $widget_ops = array('classname' => 'widget_text enhanced-text-widget', 'description' => __('Text, HTML, CSS, PHP, Flash, JavaScript, Shortcodes', 'enhancedtext'));
         $control_ops = array('width' => 400, 'height' => 350);
-        $this->WP_Widget('EnhancedTextWidget', __('Enhanced Text'), $widget_ops, $control_ops);
+        parent::__construct('EnhancedTextWidget', __('Enhanced Text', 'enhancedtext'), $widget_ops, $control_ops);
+        load_plugin_textdomain('enhancedtext', false, basename( dirname( __FILE__ ) ) . '/languages' );
     }
 
+    /**
+     * Setup the widget output
+     */
     function widget( $args, $instance ) {
+        $cache = wp_cache_get('EnhancedTextWidget', 'widget');
+
+        if (!is_array($cache)) {
+          $cache = array();
+        }
+
+        if (!isset($args['widget_id'])) {
+          $args['widget_id'] = null;
+        }
+
+        if (isset($cache[$args['widget_id']])) {
+          echo $cache[$args['widget_id']];
+          return;
+        }
+
+        ob_start();
         extract($args);
+
         $title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title'], $instance);
-        $hideTitle = $instance['hideTitle'] ? true : false;
-        $titleUrl = apply_filters('widget_title', empty($instance['titleUrl']) ? '' : $instance['titleUrl'], $instance);
-        $newWindow = $instance['newWindow'] ? true : false;
-        $cssClass = apply_filters('widget_title', empty($instance['cssClass']) ? '' : $instance['cssClass'], $instance);
-        $bare = $instance['bare'] ? true : false;
-        $text = apply_filters( 'widget_text', $instance['text'], $instance );
+        $titleUrl = empty($instance['titleUrl']) ? '' : $instance['titleUrl'];
+        $cssClass = empty($instance['cssClass']) ? '' : $instance['cssClass'];
+        $text = apply_filters('widget_text', $instance['text'], $instance);
+        $hideTitle = !empty($instance['hideTitle']) ? true : false;
+        $newWindow = !empty($instance['newWindow']) ? true : false;
+        $filterText = !empty($instance['filter']) ? true : false;
+        $bare = !empty($instance['bare']) ? true : false;
+
         if ( $cssClass ) {
             if( strpos($before_widget, 'class') === false ) {
                 $before_widget = str_replace('>', 'class="'. $cssClass . '"', $before_widget);
@@ -47,87 +73,133 @@ class EnhancedTextWidget extends WP_Widget {
                 $before_widget = str_replace('class="', 'class="'. $cssClass . ' ', $before_widget);
             }
         }
+
         echo $bare ? '' : $before_widget;
-        if($hideTitle == false) {
-            if( $titleUrl && $title ) {
-                $title = '<a href="'.$titleUrl.'"'.($newWindow == true?' target="_blank"':'').' title="'.$title.'">'.$title.'</a>';
-            }
-            if ( !empty( $title ) ) {
-                echo $bare ? $title : $before_title . $title . $after_title;
-            }
+
+        if ($newWindow) $newWindow = "target='_blank'";
+
+        if(!$hideTitle && $title) {
+            if($titleUrl) $title = "<a href='$titleUrl' $newWindow>$title</a>";
+            echo $bare ? $title : $before_title . $title . $after_title;
         }
-        ?>
-        <div class="textwidget">
-            <?php if($instance['filter']) {
-                ob_start();
-                eval("?>$text<?php ");
-                $output = ob_get_contents();
-                ob_end_clean();
-                echo wpautop($output);
-            } else {
-                eval("?>".$text."<?php ");
-            } ?>
-        </div>
-        <?php
-        echo $bare ? '' : $after_widget;
+
+        echo $bare ? '' : '<div class="textwidget widget-text">';
+
+        ob_start();
+        eval('?>' . $text);
+        $text = ob_get_contents();
+        ob_end_clean();
+        echo $filterText ? wpautop($text) : $text;
+
+        echo $bare ? '' : '</div>' . $after_widget;
+
+        $cache[$args['widget_id']] = ob_get_flush();
+        wp_cache_set('EnhancedTextWidget', $cache, 'widget');
     }
 
+    /**
+     * Run on widget update
+     */
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
-        $instance['hideTitle'] = isset($new_instance['hideTitle']);
-        $instance['titleUrl'] = strip_tags($new_instance['titleUrl']);
-        $instance['cssClass'] = strip_tags($new_instance['cssClass']);
-        $instance['newWindow'] = isset($new_instance['newWindow']);
         if ( current_user_can('unfiltered_html') )
             $instance['text'] =  $new_instance['text'];
         else
-            $instance['text'] = wp_filter_post_kses( $new_instance['text'] );
+            $instance['text'] = wp_filter_post_kses($new_instance['text']);
+        $instance['titleUrl'] = strip_tags($new_instance['titleUrl']);
+        $instance['cssClass'] = strip_tags($new_instance['cssClass']);
+        $instance['hideTitle'] = isset($new_instance['hideTitle']);
+        $instance['newWindow'] = isset($new_instance['newWindow']);
         $instance['filter'] = isset($new_instance['filter']);
         $instance['bare'] = isset($new_instance['bare']);
+
+        $this->flush_widget_cache();
+
+        $alloptions = wp_cache_get('alloptions', 'options');
+
+        if (isset($alloptions['EnhancedTextWidget'])) {
+          delete_option('EnhancedTextWidget');
+        }
+
         return $instance;
     }
 
-    function form( $instance ) {
-        $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'titleUrl' => '', 'text' => '' ) );
-        $title = "";
-        if(isset($instance['title'])){
-            $title = strip_tags($instance['title']);
-        }
-        $titleUrl = "";
-        if(isset($instance['titleUrl'])){
-            $titleUrl = strip_tags($instance['titleUrl']);
-        }
-        $cssClass = "";
-        if(isset($instance['cssClass'])){
-            $cssClass = strip_tags($instance['cssClass']);
-        }
-        $text = "";
-        if(isset($instance['text'])){
-            $text = format_to_edit($instance['text']);
-        }
-?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id('titleUrl'); ?>"><?php _e('URL:'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('titleUrl'); ?>" name="<?php echo $this->get_field_name('titleUrl'); ?>" type="text" value="<?php echo esc_attr($titleUrl); ?>" /></p>
+    /**
+     * Flush widget cache
+     */
+    function flush_widget_cache() {
+        wp_cache_delete('EnhancedTextWidget', 'widget');
+    }
 
-        <p><label for="<?php echo $this->get_field_id('cssClass'); ?>"><?php _e('CSS Classes:'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('cssClass'); ?>" name="<?php echo $this->get_field_name('cssClass'); ?>" type="text" value="<?php echo esc_attr($cssClass); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Content:'); ?></label>
-        <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
-        <p><input id="<?php echo $this->get_field_id('hideTitle'); ?>" name="<?php echo $this->get_field_name('hideTitle'); ?>" type="checkbox" <?php checked(isset($instance['hideTitle']) ? $instance['hideTitle'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('hideTitle'); ?>"><?php _e('Do not display the title'); ?></label></p>
-        <p><input type="checkbox" id="<?php echo $this->get_field_id('newWindow'); ?>" name="<?php echo $this->get_field_name('newWindow'); ?>" <?php checked(isset($instance['newWindow']) ? $instance['newWindow'] : 0); ?> />
-        <label for="<?php echo $this->get_field_id('newWindow'); ?>"><?php _e('Open the URL in a new window'); ?></label></p>
-        <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs to the content'); ?></label></p>
-        <p><input id="<?php echo $this->get_field_id('bare'); ?>" name="<?php echo $this->get_field_name('bare'); ?>" type="checkbox" <?php checked(isset($instance['bare']) ? $instance['bare'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('bare'); ?>"><?php _e('Do not output before/after_widget/title'); ?></label></p>
-        <p class="credits"><small>Developed by <a href="http://pomelodesign.com">Pomelo Design</a></small></p>
+    /**
+     * Setup the widget admin form
+     */
+    function form( $instance ) {
+        $instance = wp_parse_args( (array) $instance, array(
+            'title' => '',
+            'titleUrl' => '',
+            'cssClass' => '',
+            'text' => ''
+        ));
+        $title = $instance['title'];
+        $titleUrl = $instance['titleUrl'];
+        $cssClass = $instance['cssClass'];
+        $text = format_to_edit($instance['text']);
+?>
+
+        <style>
+            .monospace { font-family: Consolas, Lucida Console, monospace; }
+        </style>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'enhancedtext'); ?>:</label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('titleUrl'); ?>"><?php _e('URL', 'enhancedtext'); ?>:</label>
+            <input class="widefat" id="<?php echo $this->get_field_id('titleUrl'); ?>" name="<?php echo $this->get_field_name('titleUrl'); ?>" type="text" value="<?php echo $titleUrl; ?>" />
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('cssClass'); ?>"><?php _e('CSS Classes', 'enhancedtext'); ?>:</label>
+            <input class="widefat" id="<?php echo $this->get_field_id('cssClass'); ?>" name="<?php echo $this->get_field_name('cssClass'); ?>" type="text" value="<?php echo $cssClass; ?>" />
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Content', 'enhancedtext'); ?>:</label>
+            <textarea class="widefat monospace" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+        </p>
+
+        <p>
+            <input id="<?php echo $this->get_field_id('hideTitle'); ?>" name="<?php echo $this->get_field_name('hideTitle'); ?>" type="checkbox" <?php checked(isset($instance['hideTitle']) ? $instance['hideTitle'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('hideTitle'); ?>"><?php _e('Do not display the title', 'enhancedtext'); ?></label>
+        </p>
+
+        <p>
+            <input type="checkbox" id="<?php echo $this->get_field_id('newWindow'); ?>" name="<?php echo $this->get_field_name('newWindow'); ?>" <?php checked(isset($instance['newWindow']) ? $instance['newWindow'] : 0); ?> />
+            <label for="<?php echo $this->get_field_id('newWindow'); ?>"><?php _e('Open the URL in a new window', 'enhancedtext'); ?></label>
+        </p>
+
+        <p>
+            <input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs to the content', 'enhancedtext'); ?></label>
+        </p>
+
+        <p>
+            <input id="<?php echo $this->get_field_id('bare'); ?>" name="<?php echo $this->get_field_name('bare'); ?>" type="checkbox" <?php checked(isset($instance['bare']) ? $instance['bare'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('bare'); ?>"><?php _e('Do not output before/after_widget/title', 'enhancedtext'); ?></label>
+        </p>
+
+        <p class="credits"><small><?php _e('Developed by', 'enhancedtext'); ?> <a href="http://pomelodesign.com">Pomelo Design</a></small></p>
+
 <?php
     }
 }
-function EnhancedTextWidgetInit() {
+
+/**
+ * Register the widget
+ */
+function enhanced_text_widget_init() {
     register_widget('EnhancedTextWidget');
 }
 
-add_action('widgets_init', 'EnhancedTextWidgetInit');
-?>
+add_action('widgets_init', 'enhanced_text_widget_init');

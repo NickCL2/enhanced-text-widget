@@ -4,7 +4,7 @@ Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.3.4
+Stable tag: 1.4
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,8 @@ Options:
 * Do not output before/after_widget/title
 
 For support please [wordpress.org](http://wordpress.org/support/plugin/enhanced-text-widget). Visit [our website](http://pomelodesign.com), follow [@pomelod](http://twitter.com/pomelod/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
+
+Fork or contribute on [Github](https://github.com/bostondv/enhanced-text-widget)
 
 == Installation ==
 
@@ -57,6 +59,10 @@ This adds a CSS class parameter to each widget.
 This is the initial release.
 
 == Changelog ==
+
+= 1.4 =
+* Display text field in monospace font
+* Code refactoring
 
 = 1.3.4 =
 * This adds option to hide the title
