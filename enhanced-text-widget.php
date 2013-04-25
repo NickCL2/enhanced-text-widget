@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://pomelodesign.com/enhanced-text-widget
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title.
-Version: 1.4
+Version: 1.4.1
 Author: Pomelo Design
 Author URI: http://pomelodesign.com/
 License: GPL2
@@ -85,10 +85,16 @@ class EnhancedTextWidget extends WP_Widget {
 
         echo $bare ? '' : '<div class="textwidget widget-text">';
 
+        // Parse the text through PHP
         ob_start();
         eval('?>' . $text);
         $text = ob_get_contents();
         ob_end_clean();
+
+        // Run text through do_shortcode
+        $text = do_shortcode($text);
+
+        // Echo the content
         echo $filterText ? wpautop($text) : $text;
 
         echo $bare ? '' : '</div>' . $after_widget;
