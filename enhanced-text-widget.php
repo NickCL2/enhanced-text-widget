@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Enhanced Text Widget
-Plugin URI: http://pomelodesign.com/enhanced-text-widget
+Plugin URI: http://wordpress.org/plugins/enhanced-text-widget/
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title.
-Version: 1.4.1
-Author: Pomelo Design
+Version: 1.4.2
+Author: Boston Dell-Vandenberg
 Author URI: http://pomelodesign.com/
 License: GPL2
 
@@ -39,28 +39,17 @@ class EnhancedTextWidget extends WP_Widget {
      * Setup the widget output
      */
     function widget( $args, $instance ) {
-        $cache = wp_cache_get('EnhancedTextWidget', 'widget');
-
-        if (!is_array($cache)) {
-          $cache = array();
-        }
 
         if (!isset($args['widget_id'])) {
           $args['widget_id'] = null;
         }
 
-        if (isset($cache[$args['widget_id']])) {
-          echo $cache[$args['widget_id']];
-          return;
-        }
-
-        ob_start();
         extract($args);
 
         $title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title'], $instance);
         $titleUrl = empty($instance['titleUrl']) ? '' : $instance['titleUrl'];
         $cssClass = empty($instance['cssClass']) ? '' : $instance['cssClass'];
-        $text = apply_filters('widget_text', $instance['text'], $instance);
+        $text = apply_filters('widget_enhanced_text', $instance['text'], $instance);
         $hideTitle = !empty($instance['hideTitle']) ? true : false;
         $newWindow = !empty($instance['newWindow']) ? true : false;
         $filterText = !empty($instance['filter']) ? true : false;
@@ -99,8 +88,6 @@ class EnhancedTextWidget extends WP_Widget {
 
         echo $bare ? '' : '</div>' . $after_widget;
 
-        $cache[$args['widget_id']] = ob_get_flush();
-        wp_cache_set('EnhancedTextWidget', $cache, 'widget');
     }
 
     /**
@@ -120,22 +107,7 @@ class EnhancedTextWidget extends WP_Widget {
         $instance['filter'] = isset($new_instance['filter']);
         $instance['bare'] = isset($new_instance['bare']);
 
-        $this->flush_widget_cache();
-
-        $alloptions = wp_cache_get('alloptions', 'options');
-
-        if (isset($alloptions['EnhancedTextWidget'])) {
-          delete_option('EnhancedTextWidget');
-        }
-
         return $instance;
-    }
-
-    /**
-     * Flush widget cache
-     */
-    function flush_widget_cache() {
-        wp_cache_delete('EnhancedTextWidget', 'widget');
     }
 
     /**
