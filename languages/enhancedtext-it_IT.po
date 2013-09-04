@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Enhanced Text Widget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-08 16:01+0100\n"
+"PO-Revision-Date: 2013-08-08 16:05+0100\n"
+"Last-Translator: \n"
+"Language-Team: Max Guglielmino <info@maxguglelmino.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: enhanced-text-widget.php:32
+msgid "Text, HTML, CSS, PHP, Flash, JavaScript, Shortcodes"
+msgstr "Text, HTML, CSS, PHP, Flash, JavaScript, Shortcode"
+
+#: enhanced-text-widget.php:34
+msgid "Enhanced Text"
+msgstr "Enhanced Text"
+
+#: enhanced-text-widget.php:134
+msgid "Title"
+msgstr "Titolo"
+
+#: enhanced-text-widget.php:139
+msgid "URL"
+msgstr "URL"
+
+#: enhanced-text-widget.php:144
+msgid "CSS Classes"
+msgstr "Classi CSS"
+
+#: enhanced-text-widget.php:149
+msgid "Content"
+msgstr "Contenuto"
+
+#: enhanced-text-widget.php:154
+msgid "Do not display the title"
+msgstr "Non mostrare il titolo"
+
+#: enhanced-text-widget.php:159
+msgid "Open the URL in a new window"
+msgstr "Apri l'URL in una nuova finestra"
+
+#: enhanced-text-widget.php:163
+msgid "Automatically add paragraphs to the content"
+msgstr "Aggiungi paragrafi al contenuto automaticamente"
+
+#: enhanced-text-widget.php:167
+msgid "Do not output before/after_widget/title"
+msgstr "Non generare before/after_widget/title"
+
+#: enhanced-text-widget.php:170
+msgid "Developed by"
+msgstr "Sviluppato da"
+
