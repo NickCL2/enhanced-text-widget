@@ -60,6 +60,9 @@ This is the initial release.
 
 == Changelog ==
 
+= 1.4.3 =
+* Adds Italian translation
+
 = 1.4.2 =
 * Removes widget caching
 * Fixes issue with multiline PHP code
