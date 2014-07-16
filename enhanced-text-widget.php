@@ -179,5 +179,4 @@ class EnhancedTextWidget extends WP_Widget {
 function enhanced_text_widget_init() {
     register_widget('EnhancedTextWidget');
 }
-
 add_action('widgets_init', 'enhanced_text_widget_init');
