@@ -1,14 +1,14 @@
 === Enhanced Text Widget ===
 Contributors: bostondv
 Donate link: http://pomelodesign.com/donate/
-Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple
+Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple, html widget, css
 Requires at least: 3.6
 Tested up to: 4.0
 Stable tag: 1.4.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes and/or PHP as content with linkable widget title.
+An enhanced version of the text widget that supports Text, HTML, CSS, JavaScript, Flash, Shortcodes and PHP with linkable widget title.
 
 == Description ==
 
@@ -17,13 +17,13 @@ An enhanced version of the default text widget where you may have Text, HTML, CS
 = Options =
 
 * Title
-* URL
+* Title URL
 * Widget CSS class
-* Content which supports Text, HTML, CSS, JavaScript, Flash, WordPress Shortcodes and PHP
-* Do not display title
-* Open URL in new window
-* Automatically add paragraphs
-* Do not output before/after_widget/title
+* Content supports Text, HTML, CSS, JavaScript, Flash, Shortcodes, and PHP
+* Option to not display a title
+* Option to open Title URL in new window
+* Option to automatically add paragraphs to content
+* Option to not output before/after_widget/title (bare widget)
 
 = More Information =
 
