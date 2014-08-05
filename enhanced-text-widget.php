@@ -2,15 +2,20 @@
 /*
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://wordpress.org/plugins/enhanced-text-widget/
-Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, and/or PHP as content with linkable widget title.
-Version: 1.4.3
+Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes, and/or PHP as content with linkable widget title.
+Version: 1.4.4
 Author: Boston Dell-Vandenberg
 Author URI: http://pomelodesign.com/
-License: GPL2
+Text Domain: enhancedtext
+Domain Path: /languages/
+License: GPLv3
 
-This program is free software; you can redistribute it and/or modify
+Enhanced Text Widget Plugin
+Copyright (C) 2012-2014, Boston Dell-Vandenberg - boston@pomelodesign.com
+
+This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
+the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -19,8 +24,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 class EnhancedTextWidget extends WP_Widget {
@@ -30,7 +34,7 @@ class EnhancedTextWidget extends WP_Widget {
      */
     function __construct() {
         $widget_ops = array('classname' => 'widget_text enhanced-text-widget', 'description' => __('Text, HTML, CSS, PHP, Flash, JavaScript, Shortcodes', 'enhancedtext'));
-        $control_ops = array('width' => 400, 'height' => 350);
+        $control_ops = array('width' => 450);
         parent::__construct('EnhancedTextWidget', __('Enhanced Text', 'enhancedtext'), $widget_ops, $control_ops);
         load_plugin_textdomain('enhancedtext', false, basename( dirname( __FILE__ ) ) . '/languages' );
     }
@@ -127,7 +131,15 @@ class EnhancedTextWidget extends WP_Widget {
 ?>
 
         <style>
-            .monospace { font-family: Consolas, Lucida Console, monospace; }
+            .monospace {
+                font-family: Consolas, Lucida Console, monospace;
+            }
+            .etw-credits {
+                font-size: 0.9em;
+                background: #F7F7F7;
+                border: 1px solid #EBEBEB;
+                padding: 4px 6px;
+            }
         </style>
 
         <p>
@@ -167,7 +179,9 @@ class EnhancedTextWidget extends WP_Widget {
             <input id="<?php echo $this->get_field_id('bare'); ?>" name="<?php echo $this->get_field_name('bare'); ?>" type="checkbox" <?php checked(isset($instance['bare']) ? $instance['bare'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('bare'); ?>"><?php _e('Do not output before/after_widget/title', 'enhancedtext'); ?></label>
         </p>
 
-        <p class="credits"><small><?php _e('Developed by', 'enhancedtext'); ?> <a href="http://pomelodesign.com">Pomelo Design</a></small></p>
+        <p class="etw-credits">
+            <?php _e('Enjoy this plugin? Please <a href="http://pomelodesign.com/donate/" target="_blank">donate to support development</a>.', 'enhancedtext'); ?>
+        </p>
 
 <?php
     }

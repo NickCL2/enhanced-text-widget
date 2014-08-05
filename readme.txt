@@ -1,20 +1,20 @@
 === Enhanced Text Widget ===
 Contributors: bostondv
 Donate link: http://pomelodesign.com/donate/
-Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes
-Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 1.4.3
-License: GPL2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple
+Requires at least: 3.6
+Tested up to: 4.0
+Stable tag: 1.4.4
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
 
-An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, WordPress Shortcodes and/or PHP as content with linkable widget title.
+An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes and/or PHP as content with linkable widget title.
 
 == Description ==
 
-An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, WordPress Shortcodes and/or PHP as content with linkable widget title.
+An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes and/or PHP as content with linkable widget title.
 
-Options:
+= Options =
 
 * Title
 * URL
@@ -25,9 +25,17 @@ Options:
 * Automatically add paragraphs
 * Do not output before/after_widget/title
 
-For support please [wordpress.org](http://wordpress.org/support/plugin/enhanced-text-widget). Visit [our website](http://pomelodesign.com), follow [@bostondv](http://twitter.com/bostondv/) or like [on facebook](http://www.facebook.com/pomelodesign/) for updates.
+= More Information =
 
-Fork or contribute on [Github](https://github.com/bostondv/enhanced-text-widget)
+* For help use [wordpress.org](http://wordpress.org/support/plugin/enhanced-text-widget/)
+* Fork or contribute on [Github](https://github.com/bostondv/enhanced-text-widget/)
+* Visit [our website](http://pomelodesign.com/) for more
+* Follow me on [Twitter](http://twitter.com/bostondv/)
+* View my other [WordPress Plugins](http://profiles.wordpress.org/bostondv/)
+
+= Support =
+
+Did you enjoy this plugin? Please [donate to support ongoing development](http://pomelodesign.com/donate/). Your contribution would be greatly appreciated.
 
 == Installation ==
 
@@ -59,6 +67,11 @@ This adds a CSS class parameter to each widget.
 This is the initial release.
 
 == Changelog ==
+
+= 1.4.4 =
+* Updates tested to 4.0
+* Updates license to GPLv3
+* Minor code refactoring
 
 = 1.4.3 =
 * Adds Italian translation
