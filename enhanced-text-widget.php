@@ -3,28 +3,12 @@
 Plugin Name: Enhanced Text Widget
 Plugin URI: http://wordpress.org/plugins/enhanced-text-widget/
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes, and/or PHP as content with linkable widget title.
-Version: 1.4.4
+Version: 1.4.5
 Author: Boston Dell-Vandenberg
 Author URI: http://pomelodesign.com/
 Text Domain: enhancedtext
 Domain Path: /languages/
-License: GPLv3
-
-Enhanced Text Widget Plugin
-Copyright (C) 2012-2014, Boston Dell-Vandenberg - boston@pomelodesign.com
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+License: MIT
 */
 
 class EnhancedTextWidget extends WP_Widget {

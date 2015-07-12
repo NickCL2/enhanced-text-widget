@@ -1,7 +1,7 @@
 {
   "name": "bostondv/enhanced-text-widget",
   "type": "wordpress-plugin",
-  "license": "GPLv3",
+  "license": "MIT",
   "description": "An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes and/or PHP as content with linkable widget title.",
   "homepage": "http://wordpress.org/plugins/enhanced-text-widget/",
   "authors": [

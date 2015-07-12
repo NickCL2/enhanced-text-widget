@@ -3,10 +3,10 @@ Contributors: bostondv
 Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple, html widget, css
 Requires at least: 3.6
-Tested up to: 4.0
-Stable tag: 1.4.4
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.html
+Tested up to: 4.3
+Stable tag: 1.4.5
+License: MIT
+License URI: http://opensource.org/licenses/MIT
 
 An enhanced version of the text widget that supports Text, HTML, CSS, JavaScript, Flash, Shortcodes and PHP with linkable widget title.
 
@@ -67,6 +67,9 @@ This adds a CSS class parameter to each widget.
 This is the initial release.
 
 == Changelog ==
+
+= 1.4.5 =
+* Adds option to hide empty widgets
 
 = 1.4.4 =
 * Updates tested to 4.0
