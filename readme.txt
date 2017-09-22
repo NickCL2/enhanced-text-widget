@@ -36,7 +36,7 @@ Made with <3 by [Boston Dell-Vandenberg](https://bostondv.com/)
 
 = Support =
 
-Did you enjoy this plugin? Please [donate to support ongoing development](http://pomelodesign.com/donate/). Your contribution would be greatly appreciated.
+Enjoy this plugin? [Send a tip to support development](http://bostondv.com/).
 
 == Installation ==
 

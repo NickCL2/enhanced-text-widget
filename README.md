@@ -22,7 +22,7 @@ An enhanced version of the default text widget where you may have Text, HTML, CS
 
 ## Support
 
-Did you enjoy this plugin? Please [donate to support ongoing development](http://pomelodesign.com/donate/). Your contribution would be greatly appreciated.
+Enjoy this plugin? [Send a tip to support development](http://bostondv.com/tips/).
 
 ## Installation
 

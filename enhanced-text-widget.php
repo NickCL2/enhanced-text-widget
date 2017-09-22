@@ -171,7 +171,7 @@ class EnhancedTextWidget extends WP_Widget {
         </p>
 
         <p class="etw-credits">
-            <?php _e('Enjoy this plugin? Please <a href="http://pomelodesign.com/donate/" target="_blank">donate to support development</a>.', 'enhancedtext'); ?>
+            <?php _e('Enjoy this plugin? <a href="http://bostondv.com/tips/" target="_blank">Send a tip to support development</a>.', 'enhancedtext'); ?>
         </p>
 
 <?php
