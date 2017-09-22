@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/plugins/enhanced-text-widget/
 Description: An enhanced version of the default text widget where you may have Text, HTML, CSS, JavaScript, Flash, Shortcodes, and/or PHP as content with linkable widget title.
 Version: 1.4.5
 Author: Boston Dell-Vandenberg
-Author URI: http://pomelodesign.com/
+Author URI: http://bostondv.com/
 Text Domain: enhancedtext
 Domain Path: /languages/
 License: MIT

@@ -1,6 +1,6 @@
 === Enhanced Text Widget ===
 Contributors: bostondv
-Donate link: http://pomelodesign.com/donate/
+Donate link: http://bostondv.com/tips/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple, html widget, css
 Requires at least: 3.6
 Tested up to: 4.8
@@ -29,9 +29,10 @@ An enhanced version of the default text widget where you may have Text, HTML, CS
 
 * For help use [wordpress.org](http://wordpress.org/support/plugin/enhanced-text-widget/)
 * Fork or contribute on [Github](https://github.com/bostondv/enhanced-text-widget/)
-* Visit [our website](http://pomelodesign.com/) for more
 * Follow me on [Twitter](http://twitter.com/bostondv/)
 * View my other [WordPress Plugins](http://profiles.wordpress.org/bostondv/)
+
+Made with <3 by [Boston Dell-Vandenberg](https://bostondv.com/)
 
 = Support =
 
