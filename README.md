@@ -47,6 +47,9 @@ This is the initial release.
 
 ## Changelog ==
 
+### 1.4.6
+* Tested up to WordPress 4.8
+
 ### 1.4.5
 * Adds option to hide empty widgets
 

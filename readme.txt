@@ -4,7 +4,7 @@ Donate link: http://bostondv.com/tips/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple, html widget, css
 Requires at least: 3.6
 Tested up to: 4.8
-Stable tag: 1.4.5
+Stable tag: 1.4.6
 License: MIT
 License URI: http://opensource.org/licenses/MIT
 
@@ -68,6 +68,9 @@ This adds a CSS class parameter to each widget.
 This is the initial release.
 
 == Changelog ==
+
+= 1.4.6 =
+* Tested up to WordPress 4.8
 
 = 1.4.5 =
 * Adds option to hide empty widgets
