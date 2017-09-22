@@ -3,7 +3,7 @@ Contributors: bostondv
 Donate link: http://pomelodesign.com/donate/
 Tags: widget, clickable, linkable, linked title, text, php, javascript, flash, linked title text, linked, text widget, php widget, link widget title, bare widget, widget shortcodes, enhanced text, better text widget, simple, html widget, css
 Requires at least: 3.6
-Tested up to: 4.3
+Tested up to: 4.8
 Stable tag: 1.4.5
 License: MIT
 License URI: http://opensource.org/licenses/MIT
